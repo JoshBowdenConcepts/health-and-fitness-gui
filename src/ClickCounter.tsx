@@ -5,8 +5,9 @@ export const ClickCounter = () => {
     return (
         <div>
             <button onClick={() => setCount((c) => c + 1)}>
-                Count {count}
+                [] Count {count}
             </button>
+            <button>Toggle Theme</button>
         </div>
     )
 }

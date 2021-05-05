@@ -1,3 +1,4 @@
+const { ProcessName } = require('./CONSTANTS')
 const webpack = require('webpack')
 
 module.exports = {
@@ -9,7 +10,7 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.name': JSON.stringify('Development'),
+            'process.env.name': JSON.stringify(ProcessName.development),
         }),
     ],
 }

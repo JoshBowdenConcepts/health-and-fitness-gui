@@ -1,0 +1,56 @@
+@import '../scss/sizes.scss';
+
+.layout {
+    display: grid;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.mobile_layout {
+    grid-template:
+        'menu' $bar-size
+        'content' auto
+        'navigation' $bar-size
+        / auto;
+}
+
+.desktop_layout {
+    transition: 0.2s ease-in-out;
+    // https://cubic-bezier.com/#.32,.79,.89,.67
+    // transition-timing-function: cubic-bezier(0.32, 0.79, 0.89, 0.67);
+    grid-template:
+        'navigation menu' $bar-size
+        'navigation content' auto
+        / $bar-size auto;
+
+    &.menu_expanded {
+        grid-template:
+            'navigation menu' $bar-size
+            'navigation content' auto
+            / 300px auto;
+    }
+}
+
+.navigation {
+    grid-area: navigation;
+    background-color: lightcoral;
+    cursor: pointer;
+}
+
+.menu {
+    grid-area: menu;
+    background-color: lightgreen;
+}
+
+.content {
+    grid-area: content;
+    background-color: lightslategray;
+    padding: 15px;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: lightsteelblue;
+}
