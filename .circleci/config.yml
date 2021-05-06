@@ -9,7 +9,7 @@ jobs:
             - restore_cache:
                   keys:
                       - cache-{{ checksum "package.json" }}
-            - dependency/install:
+            - run:
                   name: 'Install project dependencies'
                   command: 'npm i --no-optional --unsafe-perm'
             - save_cache:
@@ -23,10 +23,9 @@ jobs:
             - run:
                   name: 'Run unit tests'
                   command: 'npm run test'
-            - cypress/run:
-                  requires:
-                      - dependency/install
-                  start: 'lerna run start --parallel'
+            - run:
+                  name: 'Run cypress tests'
+                  command: '$(npm bin)/cypress run --headless'
 
 workflows:
     version: 2
