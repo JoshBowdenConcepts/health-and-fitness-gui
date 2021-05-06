@@ -11,7 +11,7 @@ jobs:
                       - cache-{{ checksum "package.json" }}
             - run:
                   name: 'Install project dependencies'
-                  command: 'npm i'
+                  command: 'npm i --no-optional --unsafe-perm'
             - save_cache:
                   key: cache-{{ checksum "package.json" }}
                   paths:
@@ -23,6 +23,9 @@ jobs:
             - run:
                   name: 'Run unit tests'
                   command: 'npm run test'
+            - run:
+                  name: 'Run cypress tests'
+                  command: '$(npm bin)/cypress run --headless'
 
 workflows:
     version: 2
