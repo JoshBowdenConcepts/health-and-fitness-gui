@@ -1,4 +1,7 @@
 # The directory for production ready code
 /build
 
+# The cypress videos folder
+/cypress/videos
+
 node_modules
