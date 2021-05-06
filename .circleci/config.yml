@@ -22,7 +22,7 @@ jobs:
                   command: 'npm run build'
             - run:
                   name: 'Run unit tests'
-                  command: 'npm run jest'
+                  command: 'npm run test'
 
 workflows:
     version: 2
