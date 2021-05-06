@@ -23,6 +23,9 @@ jobs:
             - run:
                   name: 'Run unit tests'
                   command: 'npm run test'
+            - run:
+                  name: 'Run integration tests'
+                  command: 'npm run cypress'
 
 workflows:
     version: 2
